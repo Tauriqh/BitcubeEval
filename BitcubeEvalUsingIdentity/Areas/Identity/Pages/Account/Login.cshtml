@@ -15,8 +15,12 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+                    <input asp-for="Input.Email" class="form-control" value="@Model.CookieEmailAddress" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <label asp-for="@Model.RememberEmailAddress">
+                        <input asp-for="@Model.RememberEmailAddress" />
+                        @Html.DisplayNameFor(m => m.RememberEmailAddress)
+                    </label>
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.Password"></label>

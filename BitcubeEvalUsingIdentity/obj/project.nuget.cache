@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7w52xcLVqpBFzPHnHZmNV0lHI7f3ppvteOmyTUJy+oAgysEhj4yjSAjxdTfW3TLfpwSvHhAtWTHcoXcjqJWG9Q==",
+  "dgSpecHash": "vUJ4mpMFkziclc3K28hJODz5ywsqFA3w/vJrdFDhYsp6ZSKH9JCVvb8k3BlO9aTvOjsJ3OsMg7Cmw4U8+fvUKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tauri\\Documents\\CodeProjects\\C#\\BitcubeEvalUsingIdentity\\BitcubeEvalUsingIdentity\\BitcubeEvalUsingIdentity.csproj",
+  "projectFilePath": "C:\\Users\\tauri\\Documents\\GitHub\\BitcubeEval\\BitcubeEvalUsingIdentity\\BitcubeEvalUsingIdentity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tauri\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.5\\microsoft.aspnetcore.cryptography.internal.3.1.5.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.5\\microsoft.aspnetcore.cryptography.keyderivation.3.1.5.nupkg.sha512",
@@ -60,6 +60,7 @@
     "C:\\Users\\tauri\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
+    "C:\\Users\\tauri\\.nuget\\packages\\restsharp\\106.11.4\\restsharp.106.11.4.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\tauri\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

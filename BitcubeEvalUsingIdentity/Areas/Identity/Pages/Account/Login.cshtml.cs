@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using BitcubeEvalUsingIdentity.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace BitcubeEvalUsingIdentity.Areas.Identity.Pages.Account
 {
@@ -39,6 +36,13 @@ namespace BitcubeEvalUsingIdentity.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        [Display(Name = "Remember email address?")]
+        public bool RememberEmailAddress { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string CookieEmailAddress { get; set; }
+
         public class InputModel
         {
             [Required]
@@ -62,6 +66,12 @@ namespace BitcubeEvalUsingIdentity.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
+            if (string.IsNullOrEmpty(CookieEmailAddress))
+            {
+                // retriving the email address from the cookie if the user has previously checked on the remember email address check box
+                CookieEmailAddress = Request.Cookies["EmailAddress"];
+            }
+
             returnUrl = returnUrl ?? Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
@@ -83,8 +93,19 @@ namespace BitcubeEvalUsingIdentity.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    if (RememberEmailAddress == true)
+                    {
+                        var cookieOptions = new CookieOptions
+                        {
+                            Expires = DateTime.Now.AddDays(30)
+                        };
+
+                        // saving the email addressin a cookie and when it expires
+                        Response.Cookies.Append("EmailAddress", Input.Email, cookieOptions);
+                    }
+                    
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect("/Identity/Account/Profile");
                 }
                 else
                 {

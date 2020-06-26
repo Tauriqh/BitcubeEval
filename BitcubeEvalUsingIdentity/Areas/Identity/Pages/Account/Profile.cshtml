@@ -8,34 +8,83 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-
 <div class="row">
     <div class="col-md-5">
-        <h4>User Details</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <label>Email Address: </label>
-            </div>
-            <div class="col-md-6">
-                <label>@Model.EmailAddress</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label>First Name: </label>
-            </div>
-            <div class="col-md-6">
-                <label>@Model.FirstName</label>
-            </div>
-        </div><div class="row">
-            <div class="col-md-4">
-                <label>Last Name: </label>
-            </div>
-            <div class="col-md-6">
-                <label>@Model.LastName</label>
-            </div>
-        </div>
+        <section>
+            <form id="profile" method="post">
+                <h4>User Details</h4>
+                <hr />
+                <div>
+                    <label class="text-primary">@Model.MessageSuccessDetails</label>
+                    <label class="text-danger">@Model.ErrorMessageDetails</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.AppUser.Email"></label>
+                    <input id="emailAdress" asp-for="@Model.AppUser.Email" class="form-control" value="@Model.AppUser.Email" readonly />
+                    <span asp-validation-for="@Model.AppUser.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.AppUser.FirstName"></label>
+                    <input id="firstName" name="txtFirstName" asp-for="@Model.AppUser.FirstName" class="form-control" value="@Model.AppUser.FirstName" readonly />
+                    <span asp-validation-for="@Model.AppUser.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.AppUser.LastName"></label>
+                    <input id="lastName" name="txtLastName" asp-for="@Model.AppUser.LastName" class="form-control" value="@Model.AppUser.LastName" readonly />
+                    <span asp-validation-for="@Model.AppUser.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button id="editBtn" type="button" class="btn btn-primary" onclick="editDetails()">Edit</button>
+                    <button id="cancelBtn" type="button" class="btn btn-primary" onclick="cancelEdit()" disabled>Cancel</button>
+                    <button id="saveBtn" style="visibility:hidden;float:right;" onclick="messageSuccess()" type="submit" class="btn btn-primary" asp-page-handler="Details">Save</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-5">
+        <section>
+            <form id="passwordChange" method="post">
+                <h4>Change Password</h4>
+                <hr />
+                <div>
+                    <label class="text-primary">@Model.MessageSuccessPassword</label>
+                    <label  class="text-danger">@Model.ErrorMessagePassword</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CurrentPassword"></label>
+                    <input name="txtCurrentPassword" asp-for="@Model.CurrentPassword" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.NewPassword"></label>
+                    <input name="txtNewPassword" asp-for="@Model.NewPassword" class="form-control" />
+                    <span asp-validation-for="@Model.NewPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button style="float:right;" type="submit" onclick="messageSuccess()" class="btn btn-primary" asp-page-handler="Password">Save password</button>
+                </div>
+            </form>
+        </section>
     </div>
 </div>
 
+@section Scripts {
+    
+    <script>
+        function editDetails() {
+            document.getElementById("firstName").readOnly = false;
+            document.getElementById("lastName").readOnly = false;
+            document.getElementById("editBtn").disabled = true;
+            document.getElementById("cancelBtn").disabled = false;
+            document.getElementById("saveBtn").style.visibility = "visible";
+        }
+        function cancelEdit() {
+            document.getElementById("firstName").readOnly = true;
+            document.getElementById("lastName").readOnly = true;
+            document.getElementById("firstName").value = "@Model.AppUser.FirstName";
+            document.getElementById("lastName").value = "@Model.AppUser.LastName";
+            document.getElementById("editBtn").disabled = false;
+            document.getElementById("cancelBtn").disabled = true;
+            document.getElementById("saveBtn").style.visibility = "hidden";
+        }
+    </script>
+}

@@ -22,3 +22,8 @@
   * Profile – redirects to the profile page.
   * Friends – redirects to the friends page.
   * Logout – Should abandon the user’s current session and redirect them to the login page.
+
+#### Profile page:
+ * Displays the information that a user completed when they registered, except for their password.
+ * Should provide an edit function, that allows the user to update the information they provided when they registered, except for password.
+ * Should provide a change password function, that allows a user to change their password, after providing their current password again.

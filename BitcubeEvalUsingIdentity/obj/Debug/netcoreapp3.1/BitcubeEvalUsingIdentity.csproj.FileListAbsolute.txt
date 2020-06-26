@@ -326,3 +326,4 @@ C:\Users\tauri\Documents\GitHub\BitcubeEval\BitcubeEvalUsingIdentity\obj\Debug\n
 C:\Users\tauri\Documents\GitHub\BitcubeEval\BitcubeEvalUsingIdentity\obj\Debug\netcoreapp3.1\BitcubeEvalUsingIdentity.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\tauri\Documents\GitHub\BitcubeEval\BitcubeEvalUsingIdentity\obj\Debug\netcoreapp3.1\BitcubeEvalUsingIdentity.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\tauri\Documents\GitHub\BitcubeEval\BitcubeEvalUsingIdentity\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Profile.cshtml.g.cs
+C:\Users\tauri\Documents\GitHub\BitcubeEval\BitcubeEvalUsingIdentity\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Friends.cshtml.g.cs
